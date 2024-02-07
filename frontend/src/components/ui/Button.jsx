@@ -9,9 +9,14 @@ const Button = ({
   children,
   onClick,
   size = "lg",
+  variant = "primary",
   ...rest
 }) => {
-  const styles = `font-medium text-white bg-primary transition-all border border-transparent hover:text-primary hover:bg-transparent rounded-full hover:border-primary ${
+  const styles = `font-medium border ${
+    variant === "primary"
+      ? "text-white bg-primary hover:border-gray hover:bg-transparent hover:text-primary border-transparent"
+      : "bg-transparent text-primary border border-gray hover:bg-primary hover:border-transparent hover:text-white"
+  } transition-all rounded-full ${
     size === "lg" ? "py-4 px-10 text-xl" : "py-3 px-5 text-base"
   }`;
 
