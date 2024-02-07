@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBar = () => {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:bg-white bg-transparent rounded-full p-[10px] w-full sm:w-[95%] mx-auto lg:min-w-[800px]">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:bg-white bg-transparent rounded-full p-[10px] w-full sm:w-[95%] mx-auto lg:max-w-[800px]">
       <div className="bg-white w-full rounded-full sm:w-[40%] lg:w-[45%] flex items-center gap-6 px-10 sm:px-5 md:px-16">
         <h3 className="text-2xl">Find</h3>
         <input
