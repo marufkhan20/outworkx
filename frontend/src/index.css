@@ -71,6 +71,33 @@ h6 {
   font-family: "nohemi", sans-serif;
 }
 
+/* CustomizableBarChart.css */
+.google-visualization-tooltip {
+  display: none !important; /* Optionally hide tooltips */
+}
+
+/* Hide gridlines for horizontal and vertical axes */
+.google-visualization-table-td {
+  border-color: transparent !important;
+}
+
+.chart path {
+  fill: #000 !important;
+  width: 10px !important;
+  border-top-left-radius: 30px !important;
+}
+.chart line {
+  display: none !important;
+}
+
+svg:first-child g:nth-child(2) rect {
+  display: none;
+}
+
+svg:nth-child(6) g text {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .container {
     padding: 0 20px !important;

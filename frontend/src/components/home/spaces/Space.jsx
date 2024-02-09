@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+const images = [
+  {
+    id: 1,
+    image: "1.jpg",
+  },
+  {
+    id: 2,
+    image: "2.jpg",
+  },
+];
+
 const Space = () => {
+  const [activeImage, setActiveImage] = useState(0);
+
+  const changeImageHandler = (navigate) => {
+    if (navigate === "left") {
+      activeImage !== 0 && setActiveImage(activeImage - 1);
+    }
+
+    if (navigate === "right") {
+      activeImage !== images?.length - 1 && setActiveImage(activeImage + 1);
+    }
+  };
+
+  // useEffect(() => {})
   return (
     <div>
       <div className="overflow-hidden rounded-2xl relative w-full">
         <img
-          src="/images/spaces/1.jpg"
+          src={`/images/spaces/${images[activeImage].image}`}
           alt="space"
-          className="w-full transition-all hover:scale-125"
+          className={`w-full transition-all hover:scale-125 `}
         />
 
         <div className="absolute top-[10px] right-[10px] w-[50px] h-[50px] rounded-full bg-primary flex items-center justify-center cursor-pointer transition-all hover:opacity-60">
@@ -17,20 +41,34 @@ const Space = () => {
 
         {/* slider navigator */}
         <div className="absolute left-[10px] right-[10px] top-[50%] transform translate-y-[-50%] flex items-center justify-between gap-5">
-          <div className="cursor-pointer w-6 h-6 rounded-full bg-white transition-all hover:opacity-60 flex items-center justify-center">
+          <div
+            className="cursor-pointer w-6 h-6 rounded-full bg-white transition-all hover:opacity-60 flex items-center justify-center"
+            onClick={() => changeImageHandler("left")}
+          >
             <img src="/images/icons/left.png" alt="left" />
           </div>
-          <div className="cursor-pointer w-6 h-6 rounded-full bg-white transition-all hover:opacity-60 flex items-center justify-center">
+          <div
+            className="cursor-pointer w-6 h-6 rounded-full bg-white transition-all hover:opacity-60 flex items-center justify-center"
+            onClick={() => changeImageHandler("right")}
+          >
             <img src="/images/icons/right.png" alt="right" />
           </div>
         </div>
 
         {/* slider dots */}
         <div className="absolute bottom-5 w-full flex items-center justify-center gap-[10px]">
-          <div className="w-[8px] h-[8px] rounded-full bg-white cursor-pointer" />
-          <div className="w-[6px] h-[6px] rounded-full bg-[#D9D9D9] cursor-pointer" />
-          <div className="w-[6px] h-[6px] rounded-full bg-[#D9D9D9] cursor-pointer" />
-          <div className="w-[6px] h-[6px] rounded-full bg-[#D9D9D9] cursor-pointer" />
+          <div
+            className={`transition-all ${
+              activeImage === 0 ? "w-[8px] h-[8px]" : "w-[6px] h-[6px]"
+            } rounded-full bg-white cursor-pointer`}
+            onClick={() => setActiveImage(0)}
+          />
+          <div
+            className={`transition-all ${
+              activeImage === 1 ? "w-[8px] h-[8px]" : "w-[6px] h-[6px]"
+            } rounded-full bg-white cursor-pointer`}
+            onClick={() => setActiveImage(1)}
+          />
         </div>
       </div>
 

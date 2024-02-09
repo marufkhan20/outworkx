@@ -10,6 +10,7 @@ import ReserveSpace from "./pages/ReserveSpace";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import SpaceDetails from "./pages/SpaceDetails";
+import Statistics from "./pages/Statistics";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/booking-history" element={<BookingHistory />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </>
   );
