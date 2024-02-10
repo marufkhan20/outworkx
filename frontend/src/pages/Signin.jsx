@@ -6,7 +6,7 @@ import Button from "../components/ui/Button";
 const Signin = () => {
   return (
     <main className="flex flex-col lg:flex-row justify-between">
-      <div className="py-7 px-5 sm:px-20 w-full min-h-[90vh] lg:w-[50%] xl:w-[40%]">
+      <div className="py-7 px-5 sm:px-20 w-full min-h-[90vh] lg:w-[50%] xl:w-[30%]">
         <Link to="/">
           <img src="/images/logo.svg" alt="logo" />
         </Link>
@@ -36,7 +36,7 @@ const Signin = () => {
           </div>
         </div>
       </div>
-      <div className="hidden lg:block lg:w-[50%] xl:w-[60%] min-h-screen">
+      <div className="hidden lg:block lg:w-[50%] xl:w-[70%] min-h-screen">
         <img
           src="/images/auth/sign-up-banner.jpg"
           className="w-full h-full"

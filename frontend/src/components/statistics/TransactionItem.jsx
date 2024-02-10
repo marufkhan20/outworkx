@@ -1,6 +1,6 @@
 import React from "react";
 
-const StatisticItem = () => {
+const TransactionItem = () => {
   return (
     <div className="flex items-center justify-between gap-5">
       <div className="flex flex-wrap gap-14 items-center">
@@ -16,4 +16,4 @@ const StatisticItem = () => {
   );
 };
 
-export default StatisticItem;
+export default TransactionItem;

@@ -2,7 +2,7 @@ import React from "react";
 import { Chart } from "react-google-charts";
 import Footer from "../components/shared/Footer";
 import Heading from "../components/shared/Heading";
-import StatisticItem from "../components/statistics/StatisticItem";
+import TransactionItem from "../components/statistics/TransactionItem";
 
 const data = [
   ["", "", ""],
@@ -61,10 +61,10 @@ const Statistics = () => {
               </div>
 
               <div className="mt-16 flex flex-col gap-8">
-                <StatisticItem />
-                <StatisticItem />
-                <StatisticItem />
-                <StatisticItem />
+                <TransactionItem />
+                <TransactionItem />
+                <TransactionItem />
+                <TransactionItem />
               </div>
             </div>
           </div>

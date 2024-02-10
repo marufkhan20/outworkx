@@ -17,11 +17,15 @@ const Space = () => {
 
   const changeImageHandler = (navigate) => {
     if (navigate === "left") {
-      activeImage !== 0 && setActiveImage(activeImage - 1);
+      activeImage !== 0
+        ? setActiveImage(activeImage - 1)
+        : setActiveImage(images?.length - 1);
     }
 
     if (navigate === "right") {
-      activeImage !== images?.length - 1 && setActiveImage(activeImage + 1);
+      activeImage !== images?.length - 1
+        ? setActiveImage(activeImage + 1)
+        : setActiveImage(0);
     }
   };
 

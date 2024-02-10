@@ -13,10 +13,18 @@ const Dashboard = () => {
           <div className="flex items-center gap-10 flex-wrap">
             <div className="border border-primary rounded-lg px-5 flex items-center justify-between gap-2 w-full sm:w-[300px]">
               <select className="w-full py-[13px] outline-none text-xl leading-[47px] bg-transparent">
-                <option value="">Select</option>
-                <option value="">Weekly</option>
-                <option value="">Monthly</option>
-                <option value="">Yearly</option>
+                <option value="" className="w-full px-5">
+                  Select
+                </option>
+                <option value="" className="w-full px-5">
+                  Weekly
+                </option>
+                <option value="" className="w-full px-5">
+                  Monthly
+                </option>
+                <option value="" className="w-full px-5">
+                  Yearly
+                </option>
               </select>
             </div>
             <div className="border border-primary rounded-lg px-5 flex items-center justify-between gap-2 w-full sm:w-[300px]">

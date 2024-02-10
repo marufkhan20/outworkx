@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Heading from "../shared/Heading";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
@@ -6,35 +6,68 @@ import InputBox from "../ui/InputBox";
 import Label from "../ui/Label";
 
 const SpaceInformation = ({ setActiveTab }) => {
+  const [placeType, setPlaceType] = useState("");
+  const [offers, setOffers] = useState([]);
+
+  // handle select offer
+  const handleSelectOffer = (offer) => {
+    if (offers?.includes(offer)) {
+      const updatedOffers = offers?.filter((item) => item !== offer);
+      setOffers(updatedOffers);
+    } else {
+      setOffers([...offers, offer]);
+    }
+  };
   return (
     <div>
       <Heading>What type of place will guests have?</Heading>
 
       <form action="" className="mt-9">
         <div className="flex flex-col gap-7">
-          <InputBox>
-            <Label htmlFor="place">An entire place</Label>
-            <Input
-              type="text"
-              placeholder="Guests have whole place to themselves."
-              id="place"
-            />
+          <InputBox
+            className={`cursor-pointer transition-all ${
+              placeType === "entire-place"
+                ? "border-primary"
+                : "hover:border-primary"
+            }`}
+            onClick={() => setPlaceType("entire-place")}
+          >
+            <Label className="cursor-pointer" htmlFor="place">
+              An entire place
+            </Label>
+            <span className="text-[19px] w-full placeholder:text-primary/70 text-primary/70 font-medium leading-[37px]">
+              Guests have whole place to themselves.
+            </span>
           </InputBox>
-          <InputBox>
-            <Label htmlFor="room">A room</Label>
-            <Input
-              type="text"
-              placeholder="Guests have their own room in a home, plus access to shared spaces."
-              id="room"
-            />
+          <InputBox
+            className={`cursor-pointer transition-all ${
+              placeType === "room" ? "border-primary" : "hover:border-primary"
+            }`}
+            onClick={() => setPlaceType("room")}
+          >
+            <Label className="cursor-pointer" htmlFor="room">
+              A room
+            </Label>
+            <span className="text-[19px] w-full placeholder:text-primary/70 text-primary/70 font-medium leading-[37px]">
+              Guests have their own room in a home, plus access to shared
+              spaces.
+            </span>
           </InputBox>
-          <InputBox>
-            <Label htmlFor="shared-room">A shared room</Label>
-            <Input
-              type="text"
-              placeholder="Guests sleep in a room or common area that may be shared with you or others."
-              id="shared-room"
-            />
+          <InputBox
+            className={`cursor-pointer transition-all ${
+              placeType === "shared-room"
+                ? "border-primary"
+                : "hover:border-primary"
+            }`}
+            onClick={() => setPlaceType("shared-room")}
+          >
+            <Label className="cursor-pointer" htmlFor="shared-room">
+              A shared room
+            </Label>
+            <span className="text-[19px] w-full placeholder:text-primary/70 text-primary/70 font-medium leading-[37px]">
+              Guests sleep in a room or common area that may be shared with you
+              or others.
+            </span>
           </InputBox>
         </div>
 
@@ -76,37 +109,84 @@ const SpaceInformation = ({ setActiveTab }) => {
           </p>
 
           <div className="mt-11 grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-            <div className="py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all hover:border-primary">
+            <div
+              className={`py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all ${
+                offers?.includes("wifi")
+                  ? "border-primary"
+                  : "hover:border-primary"
+              }`}
+              onClick={() => handleSelectOffer("wifi")}
+            >
               <div>
                 <img src="/images/icons/wifi-lg.png" alt="icon" />
               </div>
               <h3 className="text-[30px] leading-[47px]">Wifi</h3>
             </div>
-            <div className="py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all hover:border-primary">
+
+            <div
+              className={`py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all ${
+                offers?.includes("tv")
+                  ? "border-primary"
+                  : "hover:border-primary"
+              }`}
+              onClick={() => handleSelectOffer("tv")}
+            >
               <div>
                 <img src="/images/icons/tv.png" alt="icon" />
               </div>
               <h3 className="text-[30px] leading-[47px]">TV</h3>
             </div>
-            <div className="py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all hover:border-primary">
+
+            <div
+              className={`py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all ${
+                offers?.includes("kitchen")
+                  ? "border-primary"
+                  : "hover:border-primary"
+              }`}
+              onClick={() => handleSelectOffer("kitchen")}
+            >
               <div>
                 <img src="/images/icons/kitchen.png" alt="icon" />
               </div>
               <h3 className="text-[30px] leading-[47px]">Kitchen</h3>
             </div>
-            <div className="py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all hover:border-primary">
+
+            <div
+              className={`py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all ${
+                offers?.includes("printer")
+                  ? "border-primary"
+                  : "hover:border-primary"
+              }`}
+              onClick={() => handleSelectOffer("printer")}
+            >
               <div>
                 <img src="/images/icons/printer.png" alt="icon" />
               </div>
               <h3 className="text-[30px] leading-[47px]">Printer</h3>
             </div>
-            <div className="py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all hover:border-primary">
+
+            <div
+              className={`py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all ${
+                offers?.includes("parking")
+                  ? "border-primary"
+                  : "hover:border-primary"
+              }`}
+              onClick={() => handleSelectOffer("parking")}
+            >
               <div>
                 <img src="/images/icons/parking.png" alt="icon" />
               </div>
               <h3 className="text-[30px] leading-[47px]">Parking</h3>
             </div>
-            <div className="py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all hover:border-primary">
+
+            <div
+              className={`py-10 px-5 flex flex-col justify-center items-center gap-5 border border-gray rounded-[25px] cursor-pointer transition-all ${
+                offers?.includes("air-conditioning")
+                  ? "border-primary"
+                  : "hover:border-primary"
+              }`}
+              onClick={() => handleSelectOffer("air-conditioning")}
+            >
               <div>
                 <img src="/images/icons/air-lg.png" alt="icon" />
               </div>

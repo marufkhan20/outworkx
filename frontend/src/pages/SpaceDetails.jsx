@@ -12,7 +12,7 @@ const SpaceDetails = () => {
         <div className="container">
           {/* space images */}
           <div className="flex flex-col lg:flex-row justify-between gap-5">
-            <div className="w-full lg:w-[70%] relative">
+            <div className="w-full lg:w-[65%] relative">
               <img
                 className="w-full h-full rounded-3xl"
                 src="/images/spaces/5.jpg"
@@ -23,7 +23,7 @@ const SpaceDetails = () => {
                 <Button size="sm">Show All Photos</Button>
               </div>
             </div>
-            <div className="w-full lg:w-[30%] flex flex-col gap-4 h-full">
+            <div className="w-full lg:w-[35%] flex flex-col gap-4 h-full">
               <img
                 src="/images/spaces/6.jpg"
                 className="w-full h-full rounded-3xl"
