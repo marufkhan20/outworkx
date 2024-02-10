@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import Heading from "../shared/Heading";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState("Offices");
@@ -43,35 +48,93 @@ const Categories = () => {
           </ul>
         </div>
 
-        <div className="mt-9 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          <div className="overflow-hidden w-full rounded-2xl">
-            <img
-              src="/images/categories/1.png"
-              alt="category"
-              className="w-full rounded-2xl transition-all hover:scale-125"
-            />
-          </div>
-          <div className="overflow-hidden w-full rounded-2xl">
-            <img
-              src="/images/categories/2.png"
-              alt="category"
-              className="w-full rounded-2xl transition-all hover:scale-125"
-            />
-          </div>
-          <div className="overflow-hidden w-full rounded-2xl">
-            <img
-              src="/images/categories/3.png"
-              alt="category"
-              className="w-full rounded-2xl transition-all hover:scale-125"
-            />
-          </div>
-          <div className="overflow-hidden w-full rounded-2xl">
-            <img
-              src="/images/categories/4.png"
-              alt="category"
-              className="w-full rounded-2xl transition-all hover:scale-125"
-            />
-          </div>
+        <div className="mt-9">
+          <Swiper
+            spaceBetween={20}
+            slidesPerView={4}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              640: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
+            autoplay={{
+              delay: 1000,
+            }}
+            loop={true}
+          >
+            <SwiperSlide>
+              <div className="overflow-hidden w-full rounded-2xl">
+                <img
+                  src="/images/categories/1.png"
+                  alt="category"
+                  className="w-full rounded-2xl transition-all hover:scale-125"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="overflow-hidden w-full rounded-2xl">
+                <img
+                  src="/images/categories/2.png"
+                  alt="category"
+                  className="w-full rounded-2xl transition-all hover:scale-125"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="overflow-hidden w-full rounded-2xl">
+                <img
+                  src="/images/categories/3.png"
+                  alt="category"
+                  className="w-full rounded-2xl transition-all hover:scale-125"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="overflow-hidden w-full rounded-2xl">
+                <img
+                  src="/images/categories/4.png"
+                  alt="category"
+                  className="w-full rounded-2xl transition-all hover:scale-125"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="overflow-hidden w-full rounded-2xl">
+                <img
+                  src="/images/categories/2.png"
+                  alt="category"
+                  className="w-full rounded-2xl transition-all hover:scale-125"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="overflow-hidden w-full rounded-2xl">
+                <img
+                  src="/images/categories/1.png"
+                  alt="category"
+                  className="w-full rounded-2xl transition-all hover:scale-125"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="overflow-hidden w-full rounded-2xl">
+                <img
+                  src="/images/categories/3.png"
+                  alt="category"
+                  className="w-full rounded-2xl transition-all hover:scale-125"
+                />
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </section>
