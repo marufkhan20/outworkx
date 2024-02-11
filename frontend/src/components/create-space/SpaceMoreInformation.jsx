@@ -3,7 +3,7 @@ import Heading from "../shared/Heading";
 import Button from "../ui/Button";
 import InputBox from "../ui/InputBox";
 
-const SpaceMoreInformation = () => {
+const SpaceMoreInformation = ({ setActiveTab }) => {
   return (
     <div>
       <Heading>Add some photos of your place</Heading>
@@ -126,7 +126,14 @@ const SpaceMoreInformation = () => {
           </div>
         </div>
 
-        <div className="mt-24 flex justify-end">
+        <div className="mt-24 flex justify-end gap-5">
+          <Button
+            className="px-14"
+            variant="secondary"
+            onClick={() => setActiveTab(1)}
+          >
+            Back
+          </Button>
           <Button className="px-14">Publish</Button>
         </div>
       </form>

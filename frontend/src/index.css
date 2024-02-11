@@ -98,6 +98,16 @@ svg:nth-child(6) g text {
   display: none;
 }
 
+.swiper-wrapper {
+  padding-bottom: 80px !important;
+}
+
+.swiper-pagination {
+  /* margin-top: 50px !important; */
+  bottom: 0 !important;
+  z-index: 2000 !important;
+}
+
 @media (max-width: 640px) {
   .container {
     padding: 0 20px !important;

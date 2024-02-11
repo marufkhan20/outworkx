@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Heading from "../shared/Heading";
 // Import Swiper React components
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/pagination";
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState("Offices");
@@ -48,10 +50,12 @@ const Categories = () => {
           </ul>
         </div>
 
-        <div className="mt-9">
+        <div className="mt-9 pb-10">
           <Swiper
             spaceBetween={20}
             slidesPerView={4}
+            pagination={true}
+            modules={[Pagination]}
             breakpoints={{
               0: {
                 slidesPerView: 1,
